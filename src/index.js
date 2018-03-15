@@ -12,6 +12,16 @@ import { ApolloLink } from 'apollo-link'
 
 const cache = new InMemoryCache()
 
+const defaultState = {
+  currentGame: {
+    __typename: 'CurrentGame',
+    teamAScore: 0,
+    teamBScore: 0,
+    teamAName: 'Team A',
+    teamBName: 'Team B',
+  }
+}
+
 const stateLink = withClientState({
   cache,
   resolvers: {
